@@ -8,6 +8,23 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function anagrams(stringA, stringB) {}
+function anagrams(stringA, stringB) {
+    let mapA = {};
+    let mapB = {};
 
+    for (let char of stringA) {
+        mapA[char] = mapA[char] + 1 || 1;
+    }
+    for (let char of stringB) {
+        mapB[char] = mapB[char] + 1 || 1;
+    }
+    for (let char in mapA) {
+        if (mapA[char] === mapB[char]) {
+            continue;
+        } else {
+            return false;
+        }
+    }
+    return true;
+}
 module.exports = anagrams;
